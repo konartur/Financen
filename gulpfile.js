@@ -1,8 +1,8 @@
-const {task, src, dest, watch, series, parallel} = require("gulp");
-const sass = require("gulp-sass")(require('sass'));
+const { task, src, dest, watch, series, parallel } = require("gulp");
+const sass = require("gulp-sass")(require("sass"));
 const postcss = require("gulp-postcss");
 const sourcemaps = require("gulp-sourcemaps");
-const gulpIf = require('gulp-if');
+const gulpIf = require("gulp-if");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const concat = require("gulp-concat");
@@ -11,51 +11,53 @@ const browserSync = require("browser-sync").create();
 const del = require("del");
 const imagemin = require("gulp-imagemin");
 const ghpages = require("gh-pages");
+const inject = require("gulp-inject");
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 const directories = {
-    html: "src/index.html",
-    scss: "src/styles/**/*.scss",
-    images: "src/images/*",
-    dist: "dist"
-}
+  html: "src/index.html",
+  scss: "src/styles/**/*.scss",
+  images: "src/images/*",
+  dist: "dist"
+};
 
 task("styles", () => src(directories.scss)
-    .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-    .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(concat('index.min.css'))
-    .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-    .pipe(dest('dist'))
-    .pipe(browserSync.stream())
+  .pipe(gulpIf(isDevelopment, sourcemaps.init()))
+  .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+  .pipe(postcss([autoprefixer(), cssnano()]))
+  .pipe(concat("index.min.css"))
+  .pipe(gulpIf(isDevelopment, sourcemaps.write()))
+  .pipe(dest(directories.dist))
+  .pipe(browserSync.stream())
 );
 
 task("html", () => src(directories.html)
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(dest(directories.dist))
+  .pipe(inject(src(`${directories.dist}/*.css`, { read: false }), { addRootSlash: false, ignorePath: directories.dist }))
+  .pipe(htmlmin({ collapseWhitespace: true }))
+  .pipe(dest(directories.dist))
 );
 
 task("img", () => src(directories.images)
-    .pipe(imagemin())
-    .pipe(dest(directories.dist + "/images"))
+  .pipe(imagemin())
+  .pipe(dest(directories.dist + "/images"))
 );
 
 task("watch", () => {
-    browserSync.init({
-        server: {
-            baseDir: directories.dist,
-        },
-    });
-    watch(directories.scss, series("styles"));
-    watch(directories.html, series("html")).on("change", browserSync.reload);
+  browserSync.init({
+    server: {
+      baseDir: directories.dist
+    }
+  });
+  watch(directories.scss, series("styles"));
+  watch(directories.html, series("html")).on("change", browserSync.reload);
 });
 
 task("clean", () => del(directories.dist));
 
 task("git-publish", callback => {
-    ghpages.publish(directories.dist, callback);
+  ghpages.publish(directories.dist, callback);
 });
 
-task("build", series("clean", parallel("html", "styles", "img")));
+task("build", series("clean", parallel(series("styles", "html"), "img")));
 task("deploy", series("build", "git-publish"));
 task("default", series("build", "watch"));
