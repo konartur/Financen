@@ -6,6 +6,7 @@ const gulpIf = require('gulp-if');
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const concat = require("gulp-concat");
+const htmlmin = require("gulp-htmlmin");
 const browserSync = require("browser-sync").create();
 const del = require("del");
 const imagemin = require("gulp-imagemin");
@@ -24,6 +25,16 @@ task("styles", () => src("src/styles/**/*.scss")
         .pipe(browserSync.stream())
 );
 
+task("html",  () => src("src/index.html")
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(dest(distDirectory))
+);
+
+task("img", () => src("src/images/*")
+    .pipe(imagemin())
+    .pipe(dest(distDirectory + "/images"))
+);
+
 task("watch", () => {
     browserSync.init({
         server: {
@@ -31,22 +42,15 @@ task("watch", () => {
         },
     });
     watch("src/styles/**/*.scss", series("styles"));
-    // gulp
-    //     .watch("src/index.html", gulp.series("html"))
-    //     .on("change", browserSync.reload);
+    watch("src/index.html", series("html")).on("change", browserSync.reload);
 });
 
 task("clean", () => del(distDirectory));
-
-task("img", () => src("src/images/*")
-    .pipe(imagemin())
-    .pipe(dest(distDirectory + "/images"))
-);
 
 task("git-publish", callback => {
     ghpages.publish(distDirectory, callback);
 });
 
-task("build", series("clean", parallel("styles", "img")));
+task("build", series("clean", parallel("html", "styles", "img")));
 task("deploy", series("build", "git-publish"));
 task("default", series("build", "watch"));
