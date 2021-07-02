@@ -12,12 +12,15 @@ const del = require("del");
 const imagemin = require("gulp-imagemin");
 const ghpages = require("gh-pages");
 const inject = require("gulp-inject");
+const ttf2woff2 = require("gulp-ttf2woff2");
+const ttf2woff = require("gulp-ttf2woff");
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 const directories = {
   html: "src/index.html",
   scss: "src/styles/**/*.scss",
   images: "src/images/*",
+  fonts: "src/fonts",
   dist: "dist"
 };
 
@@ -32,15 +35,32 @@ task("styles", () => src(directories.scss)
 );
 
 task("html", () => src(directories.html)
-  .pipe(inject(src(`${directories.dist}/*.css`, { read: false }), { addRootSlash: false, ignorePath: directories.dist }))
+  .pipe(inject(src(`${directories.dist}/*.css`, { read: false }), {
+    addRootSlash: false,
+    ignorePath: directories.dist
+  }))
   .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
   .pipe(dest(directories.dist))
 );
 
 task("img", () => src(directories.images)
   .pipe(imagemin())
-  .pipe(dest(directories.dist + "/images"))
+  .pipe(dest(`${directories.dist}/images`))
 );
+
+task("ttf2woff2", () => src(`${directories.fonts}/**/*.ttf`)
+  .pipe(ttf2woff2())
+  .pipe(dest(directories.fonts))
+);
+
+task("ttf2woff", () => src(`${directories.fonts}/**/*.ttf`)
+  .pipe(ttf2woff())
+  .pipe(dest(directories.fonts))
+);
+
+task("generate-fonts", parallel("ttf2woff2", "ttf2woff"));
+
+task("fonts", () => src(`${directories.fonts}/**/*.{ttf,woff,woff2,eot,svg}`).pipe(dest(`${directories.dist}/fonts`)));
 
 task("watch", () => {
   browserSync.init({
@@ -58,6 +78,6 @@ task("git-publish", callback => {
   ghpages.publish(directories.dist, callback);
 });
 
-task("build", series("clean", parallel(series("styles", "html"), "img")));
+task("build", series("clean", parallel(series("styles", "html"), "img", "fonts")));
 task("deploy", series("build", "git-publish"));
 task("default", series("build", "watch"));
