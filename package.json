@@ -12,6 +12,15 @@
     "prettier:html": "prettier --write src/index.html",
     "prettier:scss": "prettier --write src/**/*.scss"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.html": ["prettier:html", "git add"],
+    ".scss": ["prettier:scss", "stylelint", "git add"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/konartur/Financen.git"
@@ -37,6 +46,8 @@
     "gulp-postcss": "^9.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^11.0.0",
     "postcss": "^8.3.5",
     "prettier": "2.3.2",
     "sass": "^1.35.1",
