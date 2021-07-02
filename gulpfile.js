@@ -13,42 +13,47 @@ const imagemin = require("gulp-imagemin");
 const ghpages = require("gh-pages");
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
-const distDirectory = "dist";
+const directories = {
+    html: "src/index.html",
+    scss: "src/styles/**/*.scss",
+    images: "src/images/*",
+    dist: "dist"
+}
 
-task("styles", () => src("src/styles/**/*.scss")
-        .pipe(gulpIf(isDevelopment, sourcemaps.init()))
-        .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
-        .pipe(postcss([autoprefixer(), cssnano()]))
-        .pipe(concat('index.min.css'))
-        .pipe(gulpIf(isDevelopment, sourcemaps.write()))
-        .pipe(dest('dist'))
-        .pipe(browserSync.stream())
+task("styles", () => src(directories.scss)
+    .pipe(gulpIf(isDevelopment, sourcemaps.init()))
+    .pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(concat('index.min.css'))
+    .pipe(gulpIf(isDevelopment, sourcemaps.write()))
+    .pipe(dest('dist'))
+    .pipe(browserSync.stream())
 );
 
-task("html",  () => src("src/index.html")
-        .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(dest(distDirectory))
+task("html", () => src(directories.html)
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(dest(directories.dist))
 );
 
-task("img", () => src("src/images/*")
+task("img", () => src(directories.images)
     .pipe(imagemin())
-    .pipe(dest(distDirectory + "/images"))
+    .pipe(dest(directories.dist + "/images"))
 );
 
 task("watch", () => {
     browserSync.init({
         server: {
-            baseDir: distDirectory,
+            baseDir: directories.dist,
         },
     });
-    watch("src/styles/**/*.scss", series("styles"));
-    watch("src/index.html", series("html")).on("change", browserSync.reload);
+    watch(directories.scss, series("styles"));
+    watch(directories.html, series("html")).on("change", browserSync.reload);
 });
 
-task("clean", () => del(distDirectory));
+task("clean", () => del(directories.dist));
 
 task("git-publish", callback => {
-    ghpages.publish(distDirectory, callback);
+    ghpages.publish(directories.dist, callback);
 });
 
 task("build", series("clean", parallel("html", "styles", "img")));
