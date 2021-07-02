@@ -33,7 +33,7 @@ task("styles", () => src(directories.scss)
 
 task("html", () => src(directories.html)
   .pipe(inject(src(`${directories.dist}/*.css`, { read: false }), { addRootSlash: false, ignorePath: directories.dist }))
-  .pipe(htmlmin({ collapseWhitespace: true }))
+  .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
   .pipe(dest(directories.dist))
 );
 
