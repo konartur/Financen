@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/konartur/Financen/issues"
   },
-  "homepage": "https://github.com/konartur/Financen#readme"
+  "homepage": "https://github.com/konartur/Financen#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
