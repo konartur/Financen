@@ -8,7 +8,6 @@
     "start": "gulp",
     "deploy": "cross-env NODE_ENV=production gulp deploy",
     "generate-fonts": "gulp generate-fonts",
-    "a": "gulp fonts",
     "stylelint": "stylelint src/**/*.scss",
     "prettier": "concurrently \"npm run prettier:html\" \"npm run prettier:scss\"",
     "prettier:html": "prettier --write src/index.html",
