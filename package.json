@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp build",
     "start": "gulp",
-    "deploy": "cross-env NODE_ENV=production gulp deploy"
+    "deploy": "cross-env NODE_ENV=production gulp deploy",
+    "stylelint": "stylelint **/*.scss"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,8 @@
     "gulp-sourcemaps": "^3.0.0",
     "postcss": "^8.3.5",
     "prettier": "2.3.2",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
   }
 }
