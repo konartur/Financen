@@ -1,0 +1,66 @@
+@import "variables";
+
+.header {
+  background: url(../images/header-background.jpg) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
+  &__title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 80px;
+    letter-spacing: 0.2px;
+    color: $color-white;
+  }
+
+  &__subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: $color-white;
+    width: 75%;
+  }
+
+  &__buttons {
+    margin-top: 35px;
+    display: flex;
+
+    a.btn__start,
+    a.btn__learn{
+      text-decoration: none;
+      border-radius: 37px;
+      padding: 15px 36px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: 0.2px;
+      color: $color-white;
+      transition: background 0.2s cubic-bezier(0.18, 0.47, 0.59, -0.1), color 0.3s linear;
+    }
+
+    a.btn__start {
+      background: #23A6F0;
+      border: 1px solid transparent;
+      margin-right: 10px;
+    }
+
+    a.btn__start:hover {
+      background: #fff;
+      color: #23A6F0;
+    }
+
+    a.btn__learn {
+      border: 1px solid $color-white;
+    }
+    a.btn__learn:hover {
+      color: #23A6F0;
+      background: $color-white;
+      border: #23A6F0 1px solid;
+    }
+  }
+}

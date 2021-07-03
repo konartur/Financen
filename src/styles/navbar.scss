@@ -1,0 +1,72 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+
+  &__logo  {
+    .logo {
+      text-decoration: none;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0.1px;
+      color: #FFFFFF;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    .menu__item {
+      list-style: none;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      text-align: center;
+      letter-spacing: 0.2px;
+      color: #FFFFFF;
+      margin-right: 21px;
+      cursor: pointer;
+      transition: color 0.1s ease-in;
+    }
+    .menu__item:hover {
+      color: #23A6F0 ;
+    }
+  }
+
+  &__check {
+    a {
+      text-decoration: none;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 22px;
+      text-align: right;
+      letter-spacing: 0.2px;
+      color: #FFFFFF;
+    }
+
+    .check__login {
+      margin-right: 45px;
+      transition: color 0.1s ease-in;
+    }
+    .check__login:hover {
+      color: #23A6F0;
+    }
+    .check__button {
+      padding: 15px 25px;
+      background: #23A6F0;
+      border-radius: 5px;
+      transition: background 0.2s cubic-bezier(0.18, 0.47, 0.59, -0.1);
+      i {
+        margin-left: 15px;
+      }
+    }
+    .check__button:hover {
+      color: #23A6F0;
+      background-color: #FFFFFF;
+    }
+  }
+}
