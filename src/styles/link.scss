@@ -1,0 +1,14 @@
+@import "variables";
+
+.link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  color: $color-white;
+  cursor: pointer;
+  transition: color 0.1s ease-in;
+
+  &:hover {
+    color: $color-blue;
+  }
+}

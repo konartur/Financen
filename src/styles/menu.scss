@@ -1,0 +1,17 @@
+@import "variables";
+
+.menu {
+  display: flex;
+
+  &__item {
+    list-style: none;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    &:not(:last-of-type) {
+      margin-right: 21px;
+    }
+  }
+}

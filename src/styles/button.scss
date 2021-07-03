@@ -1,0 +1,12 @@
+@import "variables";
+
+.button {
+  padding: 15px 25px;
+  background: $color-blue;
+  transition: background 0.2s cubic-bezier(0.18, 0.47, 0.59, -0.1);
+
+  &:hover {
+    color: $color-blue;
+    background-color: $color-white;
+  }
+}
