@@ -1,0 +1,19 @@
+@import "variables";
+
+.features {
+  background-color: $color-dark;
+  color: $color-white;
+  text-align: center;
+
+  &__title {
+    font-size: 40px;
+    line-height: 57px;
+    letter-spacing: 0.2px;
+  }
+
+  &__description {
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+  }
+}

@@ -1,0 +1,30 @@
+@import "variables";
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  border-radius: 5px;
+  color: $color-dark;
+  background: $color-light-gray;
+
+  &__text {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__icon {
+    color: $color-blue;
+    font-size: 40px;
+  }
+
+  &--even {
+    background-color: $color-blue;
+    color: $color-white;
+
+    .item__icon {
+      color: inherit;
+    }
+  }
+}
