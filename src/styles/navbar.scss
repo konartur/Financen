@@ -16,18 +16,4 @@
       color: $color-white;
     }
   }
-
-  &__check {
-    .check__login {
-      margin-right: 45px;
-    }
-
-    .check__button {
-      border-radius: 5px;
-
-      i {
-        margin-left: 15px;
-      }
-    }
-  }
 }

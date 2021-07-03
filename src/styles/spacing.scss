@@ -1,0 +1,16 @@
+$sides: top, left, bottom, right;
+$gutter: 5px;
+
+@mixin spacing($name, $side, $size, $gutter) {
+  .#{$name}-#{$side}-#{$size} {
+    #{$name}-#{$side}: $size * $gutter;
+  }
+}
+
+@for $size from 1 through 10 {
+  @each $side in $sides {
+    @include spacing(margin, $side, $size, $gutter);
+    @include spacing(padding, $side, $size, $gutter);
+  }
+}
+
