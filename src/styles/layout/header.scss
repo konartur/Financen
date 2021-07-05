@@ -1,7 +1,7 @@
-@import "variables";
+@import "../abstract/variables";
 
 .header {
-  background: url("../images/header-background.jpg") no-repeat;
+  background: url("../../images/header-background.jpg") no-repeat;
   background-size: cover;
   min-height: 100vh;
 
