@@ -1,5 +1,5 @@
 $sides: top, left, bottom, right;
-$gutter: 5px;
+$gutter: 2px;
 
 @mixin spacing($name, $side, $size, $gutter) {
   .#{$name}-#{$side}-#{$size} {

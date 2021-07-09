@@ -17,3 +17,17 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .navbar {
+    &__logo {
+      .logo {
+        font-size: 20px;
+      }
+    }
+    
+    a {
+      font-size: 12px;
+    }
+  }
+}
