@@ -1,12 +1,28 @@
 .list {
+  $parent: &;
+
   list-style: none;
   display: flex;
   padding: 0;
   margin: 0;
 
-  &__item {
-    &:not(:last-of-type) {
-      margin-right: 20px;
+  &--vertical {
+    flex-direction: column;
+
+    #{$parent}__item {
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &--horizontal {
+    flex-direction: row;
+
+    #{$parent}__item {
+      &:not(:last-of-type) {
+        margin-right: 20px;
+      }
     }
   }
 }

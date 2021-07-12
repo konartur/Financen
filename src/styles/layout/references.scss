@@ -1,0 +1,14 @@
+@import "../abstract/variables";
+
+.references {
+  color: $color-white;
+  background: $color-gradient;
+  padding: 3rem 0;
+
+  &__title {
+    margin-bottom: 1.25rem;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

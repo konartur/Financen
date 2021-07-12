@@ -1,7 +1,7 @@
 @import "../abstract/variables";
 
 .form {
-  background: linear-gradient(270deg, #D71489 -1.04%, #004788 100%);
+  background: $color-gradient;
   color: $color-white;
   border-radius: 2px;
 
