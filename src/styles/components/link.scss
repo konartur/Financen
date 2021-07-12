@@ -11,4 +11,13 @@
   &:hover {
     color: $color-blue;
   }
+
+
+  &--secondary {
+    color: $color-blue;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
 }
