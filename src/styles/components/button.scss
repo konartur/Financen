@@ -4,6 +4,7 @@
   padding: 15px 25px;
   background: $color-blue;
   border-radius: 5px;
+  color: $color-white;
   transition: background 0.2s cubic-bezier(0.18, 0.47, 0.59, -0.1);
 
   &:hover {
