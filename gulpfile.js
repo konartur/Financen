@@ -21,6 +21,7 @@ const directories = {
   scss: "src/styles/**/*.scss",
   images: "src/images/*",
   fonts: "src/fonts",
+  favicon: "src/favicon",
   dist: "dist"
 };
 
@@ -62,6 +63,8 @@ task("generate-fonts", parallel("ttf2woff2", "ttf2woff"));
 
 task("fonts", () => src(`${directories.fonts}/**/*.{ttf,woff,woff2,eot,svg}`).pipe(dest(`${directories.dist}/fonts`)));
 
+task('favicon', () => src(`${directories.favicon}/**/*`).pipe(dest(`${directories.dist}/favicon`)))
+
 task("watch", () => {
   browserSync.init({
     server: {
@@ -78,6 +81,6 @@ task("git-publish", callback => {
   ghpages.publish(directories.dist, callback);
 });
 
-task("build", series("clean", parallel(series("styles", "html"), "img", "fonts")));
+task("build", series("clean", parallel(series("styles", "html"), "img", "fonts", "favicon")));
 task("deploy", series("build", "git-publish"));
 task("default", series("build", "watch"));
