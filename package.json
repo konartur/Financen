@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
+    "build:prod": "cross-env NODE_ENV=production gulp build",
     "start": "gulp",
     "deploy": "cross-env NODE_ENV=production gulp deploy",
     "generate-fonts": "gulp generate-fonts",
