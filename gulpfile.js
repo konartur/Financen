@@ -10,7 +10,6 @@ const htmlmin = require("gulp-htmlmin");
 const browserSync = require("browser-sync").create();
 const del = require("del");
 const imagemin = require("gulp-imagemin");
-const ghpages = require("gh-pages");
 const inject = require("gulp-inject");
 const ttf2woff2 = require("gulp-ttf2woff2");
 const ttf2woff = require("gulp-ttf2woff");
@@ -77,10 +76,5 @@ task("watch", () => {
 
 task("clean", () => del(directories.dist));
 
-task("git-publish", callback => {
-  ghpages.publish(directories.dist, callback);
-});
-
 task("build", series("clean", parallel(series("styles", "html"), "img", "fonts", "favicon")));
-task("deploy", series("build", "git-publish"));
 task("default", series("build", "watch"));

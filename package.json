@@ -7,16 +7,16 @@
     "build": "gulp build",
     "build:prod": "cross-env NODE_ENV=production gulp build",
     "start": "gulp",
-    "deploy": "cross-env NODE_ENV=production gulp deploy",
     "generate-fonts": "gulp generate-fonts",
     "stylelint": "stylelint src/**/*.scss",
     "prettier": "concurrently \"npm run prettier:html\" \"npm run prettier:scss\"",
     "prettier:html": "prettier --write src/index.html",
-    "prettier:scss": "prettier --write src/**/*.scss"
+    "prettier:scss": "prettier --write src/**/*.scss",
+    "lint-staged": "lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint-staged"
     }
   },
   "lint-staged": {
@@ -47,7 +47,6 @@
     "cross-env": "^7.0.3",
     "cssnano": "^5.0.6",
     "del": "^6.0.0",
-    "gh-pages": "^3.2.3",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
