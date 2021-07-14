@@ -1,37 +1,35 @@
 @font-face {
   font-family: "Montserrat";
-  src:  url("../../fonts/montserrat/montserrat-regular.woff2") format("woff2"),
-        url("../../fonts/montserrat/montserrat-regular.woff") format("woff"),
-        url("../../fonts/montserrat/montserrat-regular.ttf") format("truetype");
+  src:  url("./fonts/montserrat/montserrat-regular.woff2") format("woff2"),
+        url("./fonts/montserrat/montserrat-regular.woff") format("woff"),
+        url("./fonts/montserrat/montserrat-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src:  url("../../fonts/montserrat/montserrat-medium.woff2") format("woff2"),
-  url("../../fonts/montserrat/montserrat-medium.woff") format("woff"),
-  url("../../fonts/montserrat/montserrat-medium.ttf") format("truetype");
+  src:  url("./fonts/montserrat/montserrat-medium.woff2") format("woff2"),
+  url("./fonts/montserrat/montserrat-medium.woff") format("woff"),
+  url("./fonts/montserrat/montserrat-medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src:  url("../../fonts/montserrat/montserrat-bold.woff2") format("woff2"),
-  url("../../fonts/montserrat/montserrat-bold.woff") format("woff"),
-  url("../../fonts/montserrat/montserrat-bold.ttf") format("truetype");
+  src:  url("./fonts/montserrat/montserrat-bold.woff2") format("woff2"),
+  url("./fonts/montserrat/montserrat-bold.woff") format("woff"),
+  url("./fonts/montserrat/montserrat-bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src:  url("../../fonts/montserrat/montserrat-extra-bold.woff2") format("woff2"),
-  url("../../fonts/montserrat/montserrat-extra-bold.woff") format("woff"),
-  url("../../fonts/montserrat/montserrat-extra-bold.ttf") format("truetype");
+  src:  url("./fonts/montserrat/montserrat-extra-bold.woff2") format("woff2"),
+  url("./fonts/montserrat/montserrat-extra-bold.woff") format("woff"),
+  url("./fonts/montserrat/montserrat-extra-bold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
 }
-
-// TODO: add other types
