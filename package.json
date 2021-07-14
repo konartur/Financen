@@ -12,19 +12,14 @@
     "prettier": "concurrently \"npm run prettier:html\" \"npm run prettier:scss\"",
     "prettier:html": "prettier --write src/index.html",
     "prettier:scss": "prettier --write src/**/*.scss",
-    "lint-staged": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint-staged"
-    }
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "*.html": [
+    "src/index.html": [
       "npm run prettier:html",
       "git add"
     ],
-    "*.scss": [
+    "src/**/*.scss": [
       "npm run prettier:scss",
       "npm run stylelint",
       "git add"
