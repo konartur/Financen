@@ -21,12 +21,12 @@
   },
   "lint-staged": {
     "*.html": [
-      "prettier:html",
+      "npm run prettier:html",
       "git add"
     ],
     "*.scss": [
-      "prettier:scss",
-      "stylelint",
+      "npm run prettier:scss",
+      "npm run stylelint",
       "git add"
     ]
   },
