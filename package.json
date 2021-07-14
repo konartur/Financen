@@ -24,7 +24,7 @@
       "prettier:html",
       "git add"
     ],
-    ".scss": [
+    "*.scss": [
       "prettier:scss",
       "stylelint",
       "git add"

@@ -1,4 +1,4 @@
-@import "../abstract/variables";
+@import '../abstract/variables';
 
 .link {
   text-decoration: none;
@@ -11,7 +11,6 @@
   &:hover {
     color: $color-blue;
   }
-
 
   &--secondary {
     color: $color-blue;
