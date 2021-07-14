@@ -1,10 +1,8 @@
 @import '../abstract/variables';
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-top: 25px;
+  
 
   &__logo {
     .logo {
@@ -15,6 +13,10 @@
       letter-spacing: 0.1px;
       color: $color-white;
     }
+  }
+
+  &__mob-links {
+    display: none;
   }
 }
 
@@ -28,6 +30,39 @@
 
     a {
       font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+
+    background-color: #252B42;
+    &__check {
+      display: none;
+    }
+
+    &__menu {
+      flex-direction: column;
+    }
+
+    a {
+      font-size: 20px;
+    }
+
+    &__mob-links {
+      display: flex;
+
+      a {
+        font-size: 20px;
+        padding-right: 15px;
+        color: #fff;
+        transition: color 0.2s linear ;
+      }
+
+      a:hover {
+        color:#23a6f0;
+      }
     }
   }
 }

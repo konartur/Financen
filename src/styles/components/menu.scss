@@ -19,7 +19,20 @@
 @media (max-width: 991px) {
   .menu {
     &__item:not(:last-of-type) {
-      margin-right: 15px;
+      margin-right: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    &__item {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    &__item:not(:last-of-type) {
+      margin-right: 0;
     }
   }
 }
