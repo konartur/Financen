@@ -6,6 +6,7 @@
   background: url('./images/background.png') no-repeat;
   background-size: cover;
   padding-top: 112px;
+  padding-bottom: 2px;
   width: 100%;
 
   &__title {
@@ -73,5 +74,81 @@
     bottom: -5px;
     left: 50%;
     margin-left: -600px;
+  }
+
+  &__assistent {
+    background: url(images/header-assistent.png) no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    min-height: 521px;
+  }
+
+}
+
+@media (max-width: 991px) {
+  .banner {
+    &__title {
+      font-size: 45px;
+      line-height: 60px;
+    }
+
+    &__subtitle {
+      width: 87%;
+    }
+
+    &__buttons {
+      margin-bottom: 30px;
+
+      a.btn__start,
+      a.btn__learn  {
+        padding: 12px 30px;
+      }
+    }
+
+    &__assistent {
+      min-height: 451px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .banner {
+
+    &__title,
+    &__subtitle {
+      text-align: center;
+      width: 100%;
+    }
+
+    &__subtitle {
+      margin-top: 35px;
+    }
+
+    &__buttons {
+      flex-direction: column;
+      align-items: center;
+
+      a.btn__start,
+      a.btn__learn  {
+        padding: 12px 45px;
+      }
+
+      a.btn__start {
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .banner {
+    &__title{
+      font-size: 35px;
+    }
+
+    &__subtitle {
+      font-size: 18px;
+    }
   }
 }

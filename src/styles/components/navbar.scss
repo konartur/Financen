@@ -85,3 +85,11 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .navbar {
+    &__mob-links a {
+        font-size: 25px;
+    }
+  }
+}
