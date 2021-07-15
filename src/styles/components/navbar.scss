@@ -18,6 +18,12 @@
   &__mob-links {
     display: none;
   }
+
+  &__check {
+    .login {
+        margin-right: 12px;
+    }
+  }
 }
 
 @media (max-width: 991px) {
@@ -31,33 +37,46 @@
     a {
       font-size: 12px;
     }
+
+    &__check {
+      .login {
+          margin-right: 7px;
+      }
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .navbar {
-
-    background-color: #252B42;
+ .navbar {
+  
+   a {
+     font-size: 30px;
+   }
     &__check {
       display: none;
+
     }
 
     &__menu {
       flex-direction: column;
+      padding-top: 105px;
+      padding-left: 0;
     }
 
-    a {
-      font-size: 20px;
-    }
-
-    &__mob-links {
+   &__mob-links {
       display: flex;
+      justify-content: space-around;
 
       a {
-        font-size: 20px;
-        padding-right: 15px;
+        margin-right: 10px;
+        font-size: 30px;  
         color: #fff;
         transition: color 0.2s linear ;
+        
+        i {
+          font-weight: 300  ;
+          
+        }
       }
 
       a:hover {

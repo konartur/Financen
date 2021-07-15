@@ -26,9 +26,15 @@
 
 @media (max-width: 768px) {
   .menu {
+
     &__item {
       margin-top: 10px;
       margin-bottom: 10px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 45px;
+      
     }
 
     &__item:not(:last-of-type) {

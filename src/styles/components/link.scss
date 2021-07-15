@@ -3,7 +3,7 @@
 .link {
   text-decoration: none;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   color: $color-white;
   cursor: pointer;
   transition: color 0.1s ease-in;
@@ -18,5 +18,11 @@
     &:hover {
       color: $color-white;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .link {
+    font-weight: normal;
   }
 }
