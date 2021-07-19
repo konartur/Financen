@@ -1,0 +1,92 @@
+@import '../abstract/variables';
+
+.testimonials {
+    background-color: $color-testimonials;
+    &__title {
+        text-transform: capitalize;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 57px;
+    }
+    
+    &__subtitle {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    &__title,
+    &__subtitle {
+        text-align: center;
+        color: $color-white;
+    
+    }
+
+    &__client {
+        background-color: $color-white;
+        position: relative;
+        padding: 30px 40px;
+        margin-top: 120px;
+        margin-bottom: 140px;
+        .client {
+            &__img {
+                position: absolute;
+                left: -40px;
+                top: 30px;
+                
+            }
+            &__name {
+                color: $color-dark;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 32px;
+            }
+
+            &__position {
+                color: $color-dark-gray;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 24px;
+            }
+
+            &__stars {
+                margin-bottom: 15px;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 0px;
+
+                span {
+                    margin-right: 5px;
+                    color: $color-star;
+                }
+                }
+
+            &__text {
+                color: $color-dark-gray ;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .testimonials {
+        &__client {
+            margin-top: 30px;
+            margin-bottom: 0px;
+
+            .client {
+                &__img {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .slider {
+        padding-bottom: 80px;
+    }
+}
