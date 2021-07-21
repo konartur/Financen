@@ -1,0 +1,114 @@
+
+@import '../abstract/variables';
+
+.pricing__card {
+    background-color: $color-white;
+    border: 1px solid $color-blue;
+    border-radius: 10px;
+
+    .card {
+        &__title {
+            padding-top: 50px;
+            line-height: 32px;
+            font-size: 24px;
+            font-weight: 700;
+            color: $color-dark;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+        }
+
+        &__subtitle {
+            line-height: 24px;
+            font-size: 16px;
+            color: $color-dark-gray;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+        
+        &__title,
+        &__subtitle {
+            text-align: center;
+        }
+
+        &__price,
+        &__currency,
+        &__duration {
+            color: $color-blue;
+        }
+
+        &__price,
+        &__currency {
+            font-weight: bold;
+        }
+
+        &__price {
+            font-size: 40px;
+        }
+
+        &__currency {
+            font-size: 16px;
+
+        }
+
+        &__duration {
+            font-weight: 500;
+            font-size: 14px;
+            margin-top: 5px ;
+        }
+
+        &__list {
+            margin-top: 35px;
+
+            .list {
+                &__item {
+                    display: flex;
+                    font-size: 14px;
+                    line-height: 24px;
+                    font-weight: 600;
+                    letter-spacing: 0.2px;
+                    margin: 15px 0;
+
+                    i {
+                        margin-right: 10px;
+                        font-size: 30px;
+                    }
+                    i.success {
+                        color: $color-success;
+                    }
+                    
+                    i.unsuccess {
+                        color: $color-unsuccess;
+                    }
+                }
+            }
+        }
+
+        &__button {
+           display: flex;
+           justify-content: center;
+           margin-bottom: 50px;
+
+            a {
+                background-color: $color-blue;
+                color: $color-white;
+                font-size: 14px;
+                line-height: 24px;
+                letter-spacing: 0.2px;
+                font-weight: 700;
+                text-align: center;
+                text-decoration: none;
+                padding: 15px 90px;
+                border-radius: 5px;
+                text-transform: capitalize;
+                border: 1px solid transparent;
+                transition: color 0.2s linear, background 0.2s ease-in-out;
+            }
+
+            a:hover {
+                color: $color-blue;
+                background-color:  $color-white;
+                border: 1px solid $color-blue;
+            }
+        }
+    }
+}

@@ -24,56 +24,5 @@
     
     }
 
-    &__card {
-        background-color: $color-white;
-        border: 1px solid $color-blue;
-        border-radius: 10px;
 
-        .card {
-            &__title {
-                padding-top: 50px;
-                line-height: 32px;
-                font-size: 24px;
-                font-weight: 700;
-                color: $color-dark;
-            }
-
-            &__subtitle {
-                line-height: 24px;
-                font-size: 16px;
-                color: $color-dark-gray;
-                margin-bottom: 35px;
-                font-weight: 500;
-            }
-            
-            &__title,
-            &__subtitle {
-                text-align: center;
-            }
-
-            &__price,
-            &__currency,
-            &__duration {
-                color: $color-blue;
-            }
-
-            &__price,
-            &__currency {
-                font-weight: bold;
-            }
-
-            &__price {
-                font-size: 40px;
-            }
-
-            &__currency {
-                font-size: 16px;
-            }
-
-            &__duration {
-                font-weight: 500;
-                font-size: 14px;
-            }
-        }
-    }
 }
